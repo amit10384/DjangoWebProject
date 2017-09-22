@@ -34,6 +34,7 @@ env = environ.Env()
 ALLOWED_HOSTS = [ ]
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'manual_moderation',
+    'djangobower',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -85,6 +87,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
 )
 
 WSGI_APPLICATION = 'admin_manual_moderation.wsgi.application'
@@ -138,3 +141,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR,'/manual_moderation/static/')
+BOWER_INSTALLED_APPS = (
+    "bootstrap",
+    "jquery",
+    "leaflet",
+    "moment",
+    "eonasdan-bootstrap-datetimepicker",
+    "bootstrap-multiselect",
+    "selectize",
+    "esri-leaflet",
+    "backbone",
+    "colorbrewer",
+    "mousetrap",
+)
