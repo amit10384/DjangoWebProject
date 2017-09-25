@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h1>Image Manual Validation</h1>
+
+  <div id="observation-table" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Image</th>
+          <th>Delete</th>
+          <th>Scroll</th>
+          <th>Image note</th>
+          <th>Action</th>
+      </tr>
+      <tr>
+            <td contenteditable="true">Stir Fry</td>
+            <td contenteditable="true">stir-fry</td>
+            <td>
+                <div class="annotool-thumbnail" data-img-url="{% static 'images/image1.jpg' %}" data-animal="{{ o.animal }}">
+                    <img class="image-icon" src="{% static 'images/image1.jpg' %}"
+                                 data-src="{% static 'images/image1.jpg' %}" style="width:100%">
+                </div>
+            </td>
+            <td>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </td>
+            <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </td>
+            <td contenteditable="true">Accepted for now</td>
+            <td>
+                <form>
+                   <input type="radio" name="actionitem" value="accept" checked> Accepted<br>
+                   <input type="radio" name="actionitem" value="reject"> Violated<br>
+                   <input type="radio" name="actionitem" value="onhold"> OnHold
+                </form>
+            </td>
+          </tr>
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+              <td contenteditable="true">Untitled</td>
+              <td contenteditable="true">undefined</td>
+              <td>
+                <div class="annotool-thumbnail" data-img-url="{% static 'images/riya_sen.jpg' %}" data-animal="{{ o.animal }}">
+                    <img class="image-icon" src="{% static 'images/riya_sen.jpg' %}"
+                                 data-src="{% static 'images/riya_sen.jpg' %}" style="width:100%">
+                </div>
+              </td>
+              <td>
+               <span class="table-remove glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <td contenteditable="true">Accepted for now</td>
+              <td>
+                <form>
+                   <input type="radio" name="actionitem" value="accept" checked> Accepted<br>
+                   <input type="radio" name="actionitem" value="reject"> Violated<br>
+                   <input type="radio" name="actionitem" value="onhold"> OnHold
+                </form>
+             </td>
+          </tr>
+    </table>
+  </div>
+
+  <button id="export-btn" class="btn btn-primary">Export Data</button>
+  <p id="export"></p>
+</div>
+<div id="full-image-modal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <div id="closeImageModalId" class="close" data-dismiss="modal">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="image-zoom">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

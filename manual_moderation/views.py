@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import TemplateView,View
 
 # Create your views here.
 from django.http import HttpResponse
@@ -10,8 +10,10 @@ def index(request):
 
 
 
-class Home_Page(View) :
+class Home_Page(TemplateView) :
     template_name = 'pages/home.html'
 
-    def get(self, request):
-        return
+
+
+class Image_moderation(TemplateView) :
+    template_name = 'pages/manual_image_observation_table.html'

@@ -1,6 +1,5 @@
 {
   "name": "manual_moderation",
-  "directory":"manual_moderation/static/",
   "version": "1.1.0",
   "homepage": "https://github.com/amit10384/DjangoWebProject/",
   "authors": [],
