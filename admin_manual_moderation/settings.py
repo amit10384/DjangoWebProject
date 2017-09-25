@@ -27,17 +27,21 @@ SECRET_KEY = '1!gwv1716gq_29(zafklycawse$4i=gpy^3&8frgv)wdef@xw1'
 DEBUG = True
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('admin_manual_moderation')
+APPS_DIR = ROOT_DIR.path('DjangoWebProject')
 
 env = environ.Env()
 
 ALLOWED_HOSTS = [ ]
 
-
-
-# Application definition
-
-INSTALLED_APPS = [
+THIRD_PARTY_APPS = (
+    'crispy_forms',
+    'bootstrap3_datetime',
+    'braces',
+    'leaflet',
+    'mptt',
+    'rest_framework',
+)
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,8 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'manual_moderation',
-    'djangobower',
-]
+
+)
+
+LOCAL_APPS = ('djangobower',)
+
+INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,7 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
+'''
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR,'/manual_moderation/static/')
 BOWER_INSTALLED_APPS = (
     "bootstrap",
@@ -156,3 +164,4 @@ BOWER_INSTALLED_APPS = (
     "colorbrewer",
     "mousetrap",
 )
+'''

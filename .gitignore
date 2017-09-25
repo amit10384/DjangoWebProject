@@ -1,0 +1,6 @@
+__pycache__/
+build/
+dist/
+manual_moderation/static/bower_components/*
+.idea/
+*.pyc
